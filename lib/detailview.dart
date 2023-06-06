@@ -71,7 +71,7 @@ class detailview extends StatelessWidget{
                           style: ButtonStyle(
                               ),
                             onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>shop()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>payment(money: 80000)));
                             },
                             child: Text("buy\n80,000")
                         ),

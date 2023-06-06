@@ -10,23 +10,25 @@ import 'login.dart';
 import 'home.dart';
 import 'change.dart';
 import 'package:sliding_switch/sliding_switch.dart';
+import 'detailview.dart';
+import 'package:anim_search_bar/anim_search_bar.dart';
+import 'package:filter_list/filter_list.dart';
 
 ThemeData lightTheme=ThemeData(
-  primaryColor: Colors.amber,
-  cardTheme: CardTheme(
-    color: Colors.green
-  ),
-  splashFactory: InkSplash.splashFactory,
-  scaffoldBackgroundColor: Colors.pink[100],
-  
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ButtonStyle(
-      backgroundColor: MaterialStatePropertyAll(Colors.blue[300])
-    )
-  ),
-  appBarTheme: AppBarTheme(
-    color: Colors.pink[900]
-  ),
+  colorScheme: ColorScheme(brightness: Brightness.light,
+      primary: Colors.deepOrange.shade900,
+      onPrimary: Colors.white,
+      secondary: Colors.deepPurple,
+      onSecondary: Colors.purpleAccent,
+      error: Colors.red,
+      onError: Colors.tealAccent,
+      background: Colors.black87,
+      onBackground: Colors.indigo,
+      surface: Colors.purpleAccent,
+      onSurface: Colors.lightBlueAccent),
+  scaffoldBackgroundColor: Colors.deepOrange[50],
+  primaryColor: Colors.deepOrange[100],
+
 );
 
 ThemeData darkTheme=ThemeData(
@@ -45,7 +47,7 @@ ThemeData myTheme=lightTheme;
 
 void main() {
   runApp( MaterialApp(
-    title: 'Navigation Basics',
+    title: 'fidiboo',
     theme: myTheme,
     home: Login(),
   ));}
@@ -56,9 +58,105 @@ class lib extends StatelessWidget{
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: myAppbar(context),
-        body: const Center(
-          //child: ,// OrdinalSortKey(order),
-        ),
+        body:  Column(
+          children: [
+            PopupMenuButton(
+              padding: EdgeInsets.only(left: 10.0),
+              // add icon, by default "3 dot" icon
+                icon: const Icon(Icons.sort),
+                itemBuilder: (context){
+                  return [
+                    const PopupMenuItem<int>(
+                      value: 0,
+                      child: Text("date"),
+                    ),
+                    const PopupMenuItem<int>(
+                      value: 1,
+                      child: Text("audio books"),
+                    ),
+
+                    const PopupMenuItem<int>(
+                      value: 2,
+                      child: Text("ebook"),
+                    ),
+                    const PopupMenuItem<int>(
+                      value: 3,
+                      child: Text("popular"),
+                    ),
+                  ];
+                },
+                onSelected:(value){
+                  if(value == 0){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> lib()));
+                  }else if(value == 1){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) =>  lib()));
+                  }
+                  else if(value == 2){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) =>  lib()));
+                  }
+                  else if(value == 3){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) =>  lib()));
+                  }
+                }
+            ),
+            Container(
+              child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                        children: [
+                          Container(
+                            child:InkWell(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
+                              },
+                              child: Image.network('https://newcdn.fidibo.com/images/books/1998_41564_normal.jpg?width=200',width: MediaQuery.of(context).size.width/3,),
+                            ),
+                          ),
+                          Container(
+                            child:InkWell(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
+                              },
+                              child: Image.network('https://newcdn.fidibo.com/images/books/62989_77673_normal.jpg?width=200',width: MediaQuery.of(context).size.width/3),
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            // width: 160.0,
+                            child: InkWell(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
+                              },
+                              child: Image.network('https://newcdn.fidibo.com/images/books/69459_83225_normal.jpg?width=200',width: MediaQuery.of(context).size.width/3),
+                            ),
+
+                          ),
+                          Container(
+                            child:  InkWell(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
+                              },
+                              child: Image.network('https://newcdn.fidibo.com/images/books/70526_64499_normal.jpg?width=200',width: MediaQuery.of(context).size.width/3),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+              ),
+            )
+          ],
+        )
+
       );
     throw UnimplementedError();
   }
@@ -76,7 +174,8 @@ Widget build(BuildContext context) {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                //color: Colors.pink[200],
+                color: myTheme.primaryColor,
+                child: Padding(padding: EdgeInsets.all(50.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -103,7 +202,7 @@ Widget build(BuildContext context) {
                       ],
                     )
                   ],
-                ),
+                ),)
               ),
 
               Padding(
@@ -136,17 +235,29 @@ Widget build(BuildContext context) {
                   children: [
                     InkWell(
                       child: Text("ارتقا به اكانت ويژه \n يك ماهه \n مبلغ: 10.000",textAlign: TextAlign.center,),
-                      onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> shop()));},
+                      onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 10000)));},
+                      splashColor: myTheme.primaryColor,
+                      focusColor: myTheme.primaryColor,
+                      hoverColor:myTheme.primaryColor ,
+                      highlightColor: myTheme.primaryColor,
                     ),
                     InkWell(
                       child: Text("ارتقا به اكانت ويژه \n دو ماهه \n مبلغ: 20.000",textAlign: TextAlign.center,),
-                      onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> shop()));},
+                      onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 20000)));},
+                      splashColor: myTheme.primaryColor,
+                      focusColor: myTheme.primaryColor,
+                      hoverColor:myTheme.primaryColor ,
+                      highlightColor: myTheme.primaryColor,
                     ),
                     Container(
                       //color: Colors.pink[300],
                       child: InkWell(
                         child: Text("ارتقا به اكانت ويژه \n سه ماهه \n مبلغ: 30.000",textAlign: TextAlign.center,),
-                        onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> shop()));},
+                        onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 30000)));},
+                        splashColor: myTheme.primaryColor,
+                        focusColor: myTheme.primaryColor,
+                        hoverColor:myTheme.primaryColor ,
+                        highlightColor: myTheme.primaryColor,
                       ),
                     ),
 
@@ -157,9 +268,36 @@ Widget build(BuildContext context) {
                 padding: EdgeInsets.all(20.0),
                 child: ElevatedButton(
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> shop()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 10000)));
                     },
-                    child: Text("افزايش اعتبار")
+                    child: Text("افزايش اعتبار,10,000")
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(20.0),
+                child: ElevatedButton(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 20000)));
+                    },
+                    child: Text("افزايش اعتبار,20,000")
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(20.0),
+                child: ElevatedButton(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 40000)));
+                    },
+                    child: Text("افزايش اعتبار,40,000")
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(20.0),
+                child: ElevatedButton(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 70000)));
+                    },
+                    child: Text("افزايش اعتبار,70,000")
                 ),
               )
 
@@ -174,12 +312,137 @@ Widget build(BuildContext context) {
 }
 
 class shop extends StatelessWidget{
+  TextEditingController textController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final List<String>? selectedUserList;
+    // const FilterPage({Key? key, this.selectedUserList})
+    //     : super(key: key);
     return  Scaffold(
         appBar: myAppbar(context),
-        body: const Center(
-          child: Text("Wallet"),
+        body: Column(
+          children: [
+            Row(
+              children: [
+                AnimSearchBar(
+                  width: 400,
+                  textController: textController, onSuffixTap: null, onSubmitted: (String ) {  },
+                ),
+                PopupMenuButton(
+                    padding: EdgeInsets.only(left: 10.0),
+                    // add icon, by default "3 dot" icon
+                    icon: const Icon(Icons.sort),
+                    itemBuilder: (context){
+                      return [
+                        const PopupMenuItem<int>(
+                          value: 0,
+                          child: Text("most liked"),
+                        ),
+                        const PopupMenuItem<int>(
+                          value: 1,
+                          child: Text("most expensive"),
+                        ),
+
+                        const PopupMenuItem<int>(
+                          value: 2,
+                          child: Text("cheapest"),
+                        ),
+                      ];
+                    },
+                    onSelected:(value){
+                      if(value == 0){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> shop()));
+                      }else if(value == 1){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>  shop()));
+                      }
+                      else if(value == 2){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>  shop()));
+                      }
+                    }
+                ),
+                IconButton(onPressed: (){
+                  FilterListWidget<String>(
+                    listData: ["horror","fantasy","romance","drama"],
+                    //selectedListData: selectedUserList,
+                    onApplyButtonClick: (list) {
+
+                    },
+                    choiceChipLabel: (item) {
+                      /// Used to display text on chip
+                      //return item!.name;
+                    },
+                    validateSelectedItem: (list, val) {
+                      ///  identify if item is selected or not
+                      return list!.contains(val);
+                    },
+                    onItemSearch: (user, query) {
+                      /// When search query change in search bar then this method will be called
+                      ///
+                      /// Check if items contains query
+                      return user.isEmpty;
+                    },
+                  );
+                }, icon: Icon(Icons.filter_alt_sharp))
+
+              ],
+            ),
+            Container(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                      children: [
+                        Container(
+                          child:InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
+                            },
+                            child: Image.network('https://newcdn.fidibo.com/images/books/1998_41564_normal.jpg?width=200',width: MediaQuery.of(context).size.width/3,),
+                          ),
+                        ),
+                        Container(
+                          child:InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
+                            },
+                            child: Image.network('https://newcdn.fidibo.com/images/books/62989_77673_normal.jpg?width=200',width: MediaQuery.of(context).size.width/3),
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          // width: 160.0,
+                          child: InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
+                            },
+                            child: Image.network('https://newcdn.fidibo.com/images/books/69459_83225_normal.jpg?width=200',width: MediaQuery.of(context).size.width/3),
+                          ),
+
+                        ),
+                        Container(
+                          child:  InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
+                            },
+                            child: Image.network('https://newcdn.fidibo.com/images/books/70526_64499_normal.jpg?width=200',width: MediaQuery.of(context).size.width/3),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            )
+          ],
         ),
       );
     throw UnimplementedError();
@@ -253,12 +516,31 @@ AppBar myAppbar(BuildContext context){
 
 }
 
-// void mytheme(bool dark){
-//   Color appbarcolor;
-//   Color backgroundcolor;
-//   Color bottoncolor;
-//   Color
-//   if(dark){
-//
-//   }
-// }
+class payment extends StatelessWidget{
+  TextEditingController pass=TextEditingController();
+  final double money;
+  payment({required this.money});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: myAppbar(context),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text("if you confirm enter your credit card password: "),
+          Text("price: "+money.toString()),
+          TextField(
+              controller: pass,
+              onChanged: (v) => pass.text = v,
+              decoration: const InputDecoration(
+                labelText: "credit card password",
+              )),
+          ElevatedButton(onPressed: (){}, child: Text("pay"))
+
+        ],
+      ),
+    );
+    throw UnimplementedError();
+  }
+
+}

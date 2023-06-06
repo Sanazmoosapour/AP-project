@@ -44,6 +44,9 @@ dependencies:
   graphic: ^2.2.0
   pie_chart: ^5.3.2
   sliding_switch: ^1.1.0
+  anim_search_bar: ^2.0.3
+  filter_list: ^1.0.2
+  webview_flutter: ^4.2.2
 
 dev_dependencies:
   flutter_test:
