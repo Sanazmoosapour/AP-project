@@ -46,7 +46,8 @@ dependencies:
   sliding_switch: ^1.1.0
   anim_search_bar: ^2.0.3
   filter_list: ^1.0.2
-  webview_flutter: ^4.2.2
+  flutter_animated_icons: ^1.0.1
+  font_awesome_flutter: ^10.4.0
 
 dev_dependencies:
   flutter_test:

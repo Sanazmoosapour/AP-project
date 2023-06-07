@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flex_color_scheme/flex_color_scheme.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 import 'main.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'ebook.dart';
@@ -8,30 +6,11 @@ import 'audiobook.dart';
 
 class home extends StatelessWidget {
   CarouselController controller = CarouselController();
-  late final WebViewController _controller;
-  controller = WebViewController()
-  ..setJavaScriptMode(JavaScriptMode.unrestricted)
-  ..setBackgroundColor(const Color(0x00000000))
-  ..setNavigationDelegate(
-  NavigationDelegate(
-  onProgress: (int progress) {
-  // Update loading bar.
-  },
-  onPageStarted: (String url) {},
-  onPageFinished: (String url) {},
-  onWebResourceError: (WebResourceError error) {},
-  onNavigationRequest: (NavigationRequest request) {
-  if (request.url.startsWith('https://www.youtube.com/')) {
-  return NavigationDecision.prevent;
-  }
-  return NavigationDecision.navigate;
-  },
-  ),
-  )
-  ..loadRequest(Uri.parse('https://flutter.dev'));
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return  MaterialApp(
+        theme: myTheme,
+        home:Scaffold(
           appBar: myAppbar(context),
           body:  SingleChildScrollView(
             child: Column(
@@ -91,7 +70,8 @@ class home extends StatelessWidget {
 
               ],
             ),),
-        );
+        )
+    );
     throw UnimplementedError();
   }
 }

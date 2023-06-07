@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'main.dart';
-import 'login.dart';
-import 'main.dart';
+
 
 class change extends StatelessWidget {
   TextEditingController nameController = TextEditingController();
@@ -11,7 +9,9 @@ class change extends StatelessWidget {
   TextEditingController emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return  MaterialApp(
+      theme: myTheme,
+      home: Scaffold(
         appBar: AppBar(
           title: const Center(
             child: Text(
@@ -80,7 +80,8 @@ class change extends StatelessWidget {
               )
           ),
         ),
-      );
+      ),
+    );
     throw UnimplementedError();
   }
 

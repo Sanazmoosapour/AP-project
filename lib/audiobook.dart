@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'main.dart';
 import 'detailview.dart';
 
 class audiobook extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return  MaterialApp(
+      theme: myTheme,
+       home: Scaffold(
           body: SingleChildScrollView (
             child: Column(
               children: [
@@ -173,8 +174,9 @@ class audiobook extends StatelessWidget{
               ],
             ),
           ),
-          //  backgroundColor: Colors.tealAccent,
-        );
+         //  backgroundColor: Colors.tealAccent,
+        )
+    );
     throw UnimplementedError();
   }
 
