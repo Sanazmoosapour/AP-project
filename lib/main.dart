@@ -1,8 +1,11 @@
 
 
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_animated_icons/icons8.dart';
 import 'login.dart';
 import 'home.dart';
 import 'change.dart';
@@ -118,7 +121,7 @@ class lib extends StatelessWidget{
                           Container(
                             child:InkWell(
                               onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
+                                //Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
                               },
                               child: Image.network('https://newcdn.fidibo.com/images/books/1998_41564_normal.jpg?width=200',width: MediaQuery.of(context).size.width/3,),
                             ),
@@ -126,7 +129,7 @@ class lib extends StatelessWidget{
                           Container(
                             child:InkWell(
                               onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
+                               // Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
                               },
                               child: Image.network('https://newcdn.fidibo.com/images/books/62989_77673_normal.jpg?width=200',width: MediaQuery.of(context).size.width/3),
                             ),
@@ -141,7 +144,7 @@ class lib extends StatelessWidget{
                             // width: 160.0,
                             child: InkWell(
                               onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
+                                //Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
                               },
                               child: Image.network('https://newcdn.fidibo.com/images/books/69459_83225_normal.jpg?width=200',width: MediaQuery.of(context).size.width/3),
                             ),
@@ -150,7 +153,7 @@ class lib extends StatelessWidget{
                           Container(
                             child:  InkWell(
                               onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
+                                //Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
                               },
                               child: Image.network('https://newcdn.fidibo.com/images/books/70526_64499_normal.jpg?width=200',width: MediaQuery.of(context).size.width/3),
                             ),
@@ -247,7 +250,9 @@ Widget build(BuildContext context) {
                   children: [
                     InkWell(
                       child: Text("ارتقا به اكانت ويژه \n يك ماهه \n مبلغ: 10.000",textAlign: TextAlign.center,),
-                      onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 10000)));},
+                      onTap:(){
+                        //Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 10000)));
+                        },
                       splashColor: myTheme.primaryColor,
                       focusColor: myTheme.primaryColor,
                       hoverColor:myTheme.primaryColor ,
@@ -255,7 +260,9 @@ Widget build(BuildContext context) {
                     ),
                     InkWell(
                       child: Text("ارتقا به اكانت ويژه \n دو ماهه \n مبلغ: 20.000",textAlign: TextAlign.center,),
-                      onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 20000)));},
+                      onTap:(){
+                        //Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 20000)));
+                        },
                       splashColor: myTheme.primaryColor,
                       focusColor: myTheme.primaryColor,
                       hoverColor:myTheme.primaryColor ,
@@ -265,7 +272,9 @@ Widget build(BuildContext context) {
                       //color: Colors.pink[300],
                       child: InkWell(
                         child: Text("ارتقا به اكانت ويژه \n سه ماهه \n مبلغ: 30.000",textAlign: TextAlign.center,),
-                        onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 30000)));},
+                        onTap:(){
+                          //Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 30000)));
+                          },
                         splashColor: myTheme.primaryColor,
                         focusColor: myTheme.primaryColor,
                         hoverColor:myTheme.primaryColor ,
@@ -280,7 +289,7 @@ Widget build(BuildContext context) {
                 padding: EdgeInsets.all(20.0),
                 child: ElevatedButton(
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 10000)));
+                      //Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 10000)));
                     },
                     child: Text("افزايش اعتبار,10,000")
                 ),
@@ -289,7 +298,7 @@ Widget build(BuildContext context) {
                 padding: EdgeInsets.all(20.0),
                 child: ElevatedButton(
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 20000)));
+                      //Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 20000)));
                     },
                     child: Text("افزايش اعتبار,20,000")
                 ),
@@ -298,7 +307,7 @@ Widget build(BuildContext context) {
                 padding: EdgeInsets.all(20.0),
                 child: ElevatedButton(
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 40000)));
+                      //Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 40000)));
                     },
                     child: Text("افزايش اعتبار,40,000")
                 ),
@@ -307,7 +316,7 @@ Widget build(BuildContext context) {
                 padding: EdgeInsets.all(20.0),
                 child: ElevatedButton(
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 70000)));
+                      //Navigator.push(context, MaterialPageRoute(builder: (context)=> payment(money: 70000)));
                     },
                     child: Text("افزايش اعتبار,70,000")
                 ),
@@ -414,7 +423,7 @@ class shop extends StatelessWidget{
                         Container(
                           child:InkWell(
                             onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
+                            //  Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
                             },
                             child: Image.network('https://newcdn.fidibo.com/images/books/1998_41564_normal.jpg?width=200',width: MediaQuery.of(context).size.width/3,),
                           ),
@@ -422,7 +431,7 @@ class shop extends StatelessWidget{
                         Container(
                           child:InkWell(
                             onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
+                             // Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
                             },
                             child: Image.network('https://newcdn.fidibo.com/images/books/62989_77673_normal.jpg?width=200',width: MediaQuery.of(context).size.width/3),
                           ),
@@ -437,7 +446,7 @@ class shop extends StatelessWidget{
                           // width: 160.0,
                           child: InkWell(
                             onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
+                              //Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
                             },
                             child: Image.network('https://newcdn.fidibo.com/images/books/69459_83225_normal.jpg?width=200',width: MediaQuery.of(context).size.width/3),
                           ),
@@ -446,7 +455,7 @@ class shop extends StatelessWidget{
                         Container(
                           child:  InkWell(
                             onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
+                            //  Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
                             },
                             child: Image.network('https://newcdn.fidibo.com/images/books/70526_64499_normal.jpg?width=200',width: MediaQuery.of(context).size.width/3),
                           ),
@@ -503,7 +512,7 @@ AppBar myAppbar(BuildContext context){
       ),
       IconButton(
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context) =>  home()));
+          //Navigator.push(context, MaterialPageRoute(builder: (context) =>  home()));
         },
         icon: Icon(Icons.home),
       ),
@@ -532,34 +541,135 @@ AppBar myAppbar(BuildContext context){
 
 }
 
+
 class payment extends StatelessWidget{
-  TextEditingController pass=TextEditingController();
+
+  final String username;
+  final String bookname;
   final double money;
-  payment({required this.money});
+  payment({required this.username,required this.bookname,required this.money});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: myTheme,
       home: Scaffold(
         appBar: myAppbar(context),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text("if you confirm enter your credit card password: "),
-            Text("price: "+money.toString()),
-            TextField(
-                controller: pass,
-                onChanged: (v) => pass.text = v,
-                decoration: const InputDecoration(
-                  labelText: "credit card password",
-                )),
-            ElevatedButton(onPressed: (){}, child: Text("pay"))
-
-          ],
-        ),
+        body: sendmessagepay(username: username, bookname: bookname, money:money),
       ),
     );
     throw UnimplementedError();
   }
+}
+class sendmessagepay extends StatefulWidget{
+  final String username;
+  final String bookname;
+  final double money;
+  sendmessagepay({required this.username,required this.bookname,required this.money});
+  @override
+  State<StatefulWidget> createState() =>_sendmessagepaystate ( username: username, bookname: bookname, money:money);
 
 }
+class _sendmessagepaystate extends State<sendmessagepay>{
+  TextEditingController pass=TextEditingController();
+  final String username;
+  final String bookname;
+  final double money;
+
+  _sendmessagepaystate({required this.username,required this.bookname,required this.money});
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Text("if you confirm enter your credit card password: "),
+        Text("price: "+money.toString()),
+        TextField(
+            controller: pass,
+            onChanged: (v) => pass.text = v,
+            decoration: const InputDecoration(
+              labelText: "credit card password",
+            )),
+        ElevatedButton(onPressed: () async {
+          String response=await sendpay(username,bookname,money);
+          switch(response){
+            case "succesfull":
+              String book=await sendbookdetail(username, bookname);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview(username: username, book: book)));
+              break;
+            case "not enough money":
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text("Error"),
+                      content: Text(
+                          "not enough money"),
+                      actions: [
+                        ElevatedButton(
+                          child: Text("Ok"),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        )
+                      ],
+                    );
+                  });
+              break;
+            case "wrong password":
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text("Error"),
+                      content: Text(
+                          "wrong password"),
+                      actions: [
+                        ElevatedButton(
+                          child: Text("Ok"),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        )
+                      ],
+                    );
+                  });
+              break;
+          }
+        }, child: Text("pay"))
+
+      ],
+    );
+    throw UnimplementedError();
+  }
+  Future<String> sendpay(String username,String bookname,double money) async{
+    String requst="ratewant\nname:$username&&bookname:$bookname&&money:$money\u0000";
+    String res="";
+    var socket=await Socket.connect("192.168.97.146",8000);
+    socket.write(requst);
+    socket.flush();
+    var subscription=socket.listen((response) async{
+      res+=String.fromCharCodes(response);
+    });
+    await subscription.asFuture<void>();
+    return res;
+  }
+  Future<String> sendbookdetail(String username,String bookname) async{
+    String requst="viewBook\nname:$username&&bookname:$bookname\u0000";
+    String res="";
+    var socket=await Socket.connect("192.168.97.146",8000);
+    socket.write(requst);
+    socket.flush();
+    var subscription=socket.listen((response) async{
+      res+=String.fromCharCodes(response);
+    });
+    await subscription.asFuture<void>();
+    return res;
+  }
+
+}
+
+
+
+
+

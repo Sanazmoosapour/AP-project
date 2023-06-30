@@ -1,8 +1,16 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'detailview.dart';
 
 class Ebook extends StatelessWidget{
+  final String name;
+  final String fav;
+  final String topsel;
+  final String newrelease;
+
+  Ebook({required this.name,required this.fav,required this.newrelease, required this.topsel});
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
@@ -17,53 +25,7 @@ class Ebook extends StatelessWidget{
                 child: ListView(
                   // This next line does the trick.
                   scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    Container(
-                      // width: 160.0,
-
-                      child: InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
-                        },
-                        child: Image.network('https://newcdn.fidibo.com/images/books/85437_48595_normal.jpg?width=200'),
-                      ),
-
-
-
-                    ),
-                    Container(
-                      child: InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
-                        },
-                        child: Image.network('https://newcdn.fidibo.com/images/books/118215_13484_normal.jpg?width=200'),
-                      ),
-                    ),
-                    Container(
-                      child: InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
-                        },
-                        child: Image.network('https://newcdn.fidibo.com/images/books/90294_51440_normal.jpg?width=200'),
-                      ),
-                    ),
-                    Container(
-                      child:InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
-                        },
-                        child: Image.network('https://newcdn.fidibo.com/images/books/99473_44720_normal.jpg?width=200'),
-                      ),
-                    ),
-                    Container(
-                      child: InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
-                        },
-                        child: Image.network('https://newcdn.fidibo.com/images/books/100102_63516_normal.jpg?width=200'),
-                      ),
-                    ),
-                  ],
+                  children: convertor(fav,context),
                 ),
               ),
               const SizedBox(height: 40.0,child: Text("new releases",style: TextStyle(fontSize: 20),),),
@@ -72,103 +34,15 @@ class Ebook extends StatelessWidget{
                 child: ListView(
                   // This next line does the trick.
                   scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    Container(
-                      // width: 160.0,
-                      child:InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
-                        },
-                        child: Image.network('https://newcdn.fidibo.com/images/books/69380_61867_normal.jpg?width=200'),
-                      ),
-
-
-                    ),
-                    Container(
-                      child:InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
-                        },
-                        child: Image.network('https://newcdn.fidibo.com/images/books/69569_47206_normal.jpg?width=200'),
-                      ),
-                    ),
-                    Container(
-                      child:InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
-                        },
-                        child: Image.network('https://newcdn.fidibo.com/images/books/118203_76231_normal.jpg?width=200'),
-                      ),
-                    ),
-                    Container(
-                      child:InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
-                        },
-                        child: Image.network('https://newcdn.fidibo.com/images/books/109673_93017_normal.jpg?width=200'),
-                      ),
-                    ),
-                    Container(
-                      child: InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
-                        },
-                        child: Image.network('https://newcdn.fidibo.com/images/books/98322_90207_normal.jpg?width=200'),
-                      ),
-                    ),
-                  ],
+                  children: convertor(newrelease,context),
                 ),
               ),
               const SizedBox(height: 40.0,child: Text("top selling",style: TextStyle(fontSize: 20),),),
               SizedBox(
                 height: 300,
-                child: ListView(
-                  // This next line does the trick.
+                child: ListView(// This next line does the trick.
                   scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    Container(
-                      // width: 160.0,
-                      child: InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
-                        },
-                        child: Image.network('https://newcdn.fidibo.com/images/books/69459_83225_normal.jpg?width=200'),
-                      ),
-
-                    ),
-                    Container(
-                      child:  InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
-                        },
-                        child: Image.network('https://newcdn.fidibo.com/images/books/70526_64499_normal.jpg?width=200'),
-                      ),
-                    ),
-                    Container(
-                      child:InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
-                        },
-                        child: Image.network('https://newcdn.fidibo.com/images/books/1998_41564_normal.jpg?width=200'),
-                      ),
-                    ),
-                    Container(
-                      child:InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
-                        },
-                        child: Image.network('https://newcdn.fidibo.com/images/books/62989_77673_normal.jpg?width=200'),
-                      ),
-                    ),
-                    Container(
-                      child:InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview()));
-                        },
-                        child: Image.network('https://newcdn.fidibo.com/images/books/113320_76086_normal.jpg?width=200'),
-                      ),
-                    ),
-                  ],
+                  children: convertor(topsel,context),
                 ),
               )
             ],
@@ -180,4 +54,166 @@ class Ebook extends StatelessWidget{
     throw UnimplementedError();
   }
 
+  List<InkWell> convertor(String data,BuildContext context){
+
+    List<String> books=data.split("~~");
+
+    List<InkWell> output=[];
+    if(books.isEmpty)
+      return output;
+    for(int i=0;i<books.length;i++){
+      String bookname=books.elementAt(i).split("&&").elementAt(0);
+      String image=books.elementAt(i).split("&&").elementAt(1);
+
+      output.add(InkWell(
+        onTap: () async {
+          String book=await send(name,bookname);
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview(username: name,book: book,)));
+        },
+        child: Image.network(image),
+      )
+      );
+    }
+
+    return output;
+  }
+
+  Future<String> send(String username,String bookname) async{
+    String requst="viewBook\nname:$username&&bookname:$bookname\u0000";
+    print(requst);
+    String res="";
+    var socket=await Socket.connect("192.168.97.146",8000);
+    socket.write(requst);
+    socket.flush();
+    var subscription=socket.listen((response) async{
+      res+=String.fromCharCodes(response);
+    });
+    await subscription.asFuture<void>();
+    return res;
+  }
 }
+
+
+
+
+// class booksmessage extends StatefulWidget{
+//   final String name;
+//   final String fav;
+//   final String topsel;
+//   final String newrelease;
+//
+//   book({required this.name,required this.fav,required this.newrelease, required this.topsel});
+//   @override
+//   State<StatefulWidget> createState() =>_booksmessagestate(name: name);
+// }
+// class _booksmessagestate extends State<booksmessage>{
+//   final String name;
+//   _booksmessagestate({required this.name});
+//   String _fav="";
+//   String _newrelease="";
+//   String _topsell="";
+//   List<InkWell> f=[];
+//
+//   @override
+//
+//   Widget build(BuildContext context) {
+//     sendfav(name);
+//     sendtopsell(name);
+//     sendnewrelease(name);
+//
+//     return SingleChildScrollView (
+//       child: Column(
+//         children: [
+//           const SizedBox(height: 40.0,child: Text("Favorite",style: TextStyle(fontSize: 20),),),
+//           SizedBox(
+//             height: 300,
+//             child: ListView(
+//                   // This next line does the trick.
+//               scrollDirection: Axis.horizontal,
+//               children: convertor(_fav),
+//             ),
+//           ),
+//           const SizedBox(height: 40.0,child: Text("new releases",style: TextStyle(fontSize: 20),),),
+//           SizedBox(
+//             height: 300,
+//             child: ListView(
+//                        // This next line does the trick.
+//               scrollDirection: Axis.horizontal,
+//               children: convertor(_newrelease),
+//             ),
+//           ),
+//           const SizedBox(height: 40.0,child: Text("top selling",style: TextStyle(fontSize: 20),),),
+//           SizedBox(
+//             height: 300,
+//             child: ListView(// This next line does the trick.
+//               scrollDirection: Axis.horizontal,
+//               children: convertor(_topsell),
+//             ),
+//           )
+//         ],
+//       ),
+//     );
+//
+//     throw UnimplementedError();
+//   }
+//
+//
+//
+//
+//
+//   List<InkWell> convertor(String data){
+//
+//     List<String> books=data.split("\n");
+//
+//     List<InkWell> output=[];
+//     if(books.isEmpty)
+//       return output;
+//     for(int i=0;i<books.length;i++){
+//       String bookname=books.elementAt(i).split("&&").elementAt(0);
+//       //String image=books.elementAt(i).split("&&").elementAt(1);
+//
+//        output.add(InkWell(
+//          onTap: (){
+//            Navigator.push(context, MaterialPageRoute(builder: (context)=>detailview(username: name,bookname: bookname,)));
+//          },
+//          //child: Image.network(image),
+//           )
+//        );
+//     }
+//
+//     return output;
+//   }
+// }
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
